@@ -23,7 +23,7 @@ def _extract_features(df):
     print('df:', type(df), df.shape, df.head())
     df['index_str'] = df.index.astype(str)
     df['id'] = df['id'].str.cat(df['index_str'], sep=':')
-    df.drop(['index_str'], inplace=True)
+    df.drop(['index_str'], axis=1, inplace=True)
     for i in range(200):
         f_name = 'f' + str(i)
         # print(type(df[f_name]))
