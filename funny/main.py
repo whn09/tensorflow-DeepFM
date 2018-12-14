@@ -63,8 +63,8 @@ def _load_fm_data():
     for i in range(200):
         header.append('f' + str(i))
 
-    X_train, y_train, qid_train = load_svmlight_file(config.TRAIN_FILE)
-    X_test, y_test, ids_test = load_svmlight_file(config.TEST_FILE)
+    X_train, y_train, qid_train = load_svmlight_file(config.TRAIN_FILE, query_id=True)
+    X_test, y_test, ids_test = load_svmlight_file(config.TEST_FILE, query_id=True)
     X_test.resize((X_test.shape[0], 899))
     print('train x y qid:', X_train.shape, y_train.shape, qid_train.shape)
     print('test x y qid:', X_test.shape, y_test.shape, ids_test.shape)
