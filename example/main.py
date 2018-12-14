@@ -23,6 +23,9 @@ def _load_data():
     dfTrain = pd.read_csv(config.TRAIN_FILE)
     dfTest = pd.read_csv(config.TEST_FILE)
 
+    print('init dfTrain:', dfTrain.shape, dfTrain.head())
+    print('init dfTest:', dfTest.shape, dfTest.head())
+
     def preprocess(df):
         cols = [c for c in df.columns if c not in ["id", "target"]]
         df["missing_feat"] = np.sum((df[cols] == -1).values, axis=1)
