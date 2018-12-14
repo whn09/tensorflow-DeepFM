@@ -1,7 +1,9 @@
 
 # set the path-to-files
-TRAIN_FILE = "../../dataset/log_preprocess/20181128/train_ph.libsvm"
-TEST_FILE = "../../dataset/log_preprocess/20181128/test_ph.libsvm"
+# TRAIN_FILE = "../../dataset/log_preprocess/20181128/train_ph.libsvm"
+# TEST_FILE = "../../dataset/log_preprocess/20181128/test_ph.libsvm"
+TRAIN_FILE = "../../dataset/log_preprocess/20181128/train_ph.fm"
+TEST_FILE = "../../dataset/log_preprocess/20181128/test_ph.fm"
 
 SUB_DIR = "./output"
 

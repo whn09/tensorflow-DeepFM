@@ -58,6 +58,22 @@ def _load_data():
     return dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices
 
 
+def _load_fm_data():
+    header = ['target', 'id']
+    for i in range(200):
+        header.append('f' + str(i))
+
+    X_train, y_train, qid_train = load_svmlight_file(config.TRAIN_FILE)
+    X_test, y_test, ids_test = load_svmlight_file(config.TEST_FILE)
+    X_test.resize((X_test.shape[0], 899))
+    print('train x y qid:', X_train.shape, y_train.shape, qid_train.shape)
+    print('test x y qid:', X_test.shape, y_test.shape, ids_test.shape)
+
+    cat_features_indices = []
+
+    return dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices
+
+
 def _run_base_model_dfm(dfTrain, dfTest, folds, dfm_params):
     fd = FeatureDictionary(dfTrain=dfTrain, dfTest=dfTest,
                            numeric_cols=config.NUMERIC_COLS,
@@ -131,7 +147,8 @@ def _plot_fig(train_results, valid_results, model_name):
 
 
 # load data
-dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices = _load_data()
+# dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices = _load_data()
+dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices = _load_fm_data()
 print('dfTrain:', dfTrain.shape, dfTrain.head())
 print('dfTest:', dfTest.shape, dfTest.head())
 print('X_train:', X_train.shape, X_train)
