@@ -68,8 +68,8 @@ def _load_fm_data():
 
     dfTrain = pd.DataFrame(dfTrain.toarray())
     dfTest = pd.DataFrame(dfTest.toarray())
-    X_train = dfTrain
-    X_test = dfTest
+    X_train = dfTrain.copy()
+    X_test = dfTest.copy()
     cat_features_indices = []
 
     return dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices
@@ -150,8 +150,8 @@ def _plot_fig(train_results, valid_results, model_name):
 # load data
 # dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices = _load_data()
 dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices = _load_fm_data()
-print('dfTrain:', dfTrain.shape)
-print('dfTest:', dfTest.shape)
+print('dfTrain:', dfTrain.shape, dfTrain.head())
+print('dfTest:', dfTest.shape, dfTest.head())
 print('X_train:', X_train.shape)
 print('y_train:', y_train.shape)
 print('X_test:', X_test.shape)
