@@ -62,7 +62,7 @@ def _load_fm_data():
     dfTrain, y_train, qid_train = load_svmlight_file(config.TRAIN_FILE, query_id=True)
     print('train x y qid:', dfTrain.shape, y_train.shape, qid_train.shape)
 
-    dfTest, y_test, ids_test = load_svmlight_file(config.TEST_FILE, query_id=True)
+    dfTest, y_test, qid_test = load_svmlight_file(config.TEST_FILE, query_id=True)
     dfTest.resize((dfTest.shape[0], 899))
     print('test x y qid:', type(dfTest), dfTest.shape, type(y_test), y_test.shape, type(ids_test), ids_test.shape)
 
@@ -70,6 +70,12 @@ def _load_fm_data():
     dfTest = pd.DataFrame(dfTest.toarray())
     X_train = dfTrain.copy()
     X_test = dfTest.copy()
+    ids_test = qid_test
+
+    dfTrain['target'] = y_train
+    dfTrain['id'] = qid_train
+    dfTest['target'] = y_test
+    dfTest['id'] = qid_test
     cat_features_indices = []
 
     return dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices

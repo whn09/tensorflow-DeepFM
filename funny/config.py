@@ -13,14 +13,8 @@ NUM_SPLITS = 3
 RANDOM_SEED = 2018
 
 # types of columns of the dataset dataframe
-CATEGORICAL_COLS = [
+CATEGORICAL_COLS = []
 
-]
+NUMERIC_COLS = [str(i) for i in range(899)]
 
-NUMERIC_COLS = [
-
-]
-
-IGNORE_COLS = [
-
-]
+IGNORE_COLS = []
