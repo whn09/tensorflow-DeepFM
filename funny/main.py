@@ -69,8 +69,8 @@ def _load_fm_data():
     print('train x y qid:', dfTrain.shape, y_train.shape, qid_train.shape)
     print('test x y qid:', dfTest.shape, y_test.shape, ids_test.shape)
 
-    X_train = pd.DataFrame(dfTrain.to_array())
-    X_test = pd.DataFrame(dfTest.to_array())
+    X_train = pd.DataFrame(dfTrain.toarray())
+    X_test = pd.DataFrame(dfTest.toarray())
     cat_features_indices = []
 
     return dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices
