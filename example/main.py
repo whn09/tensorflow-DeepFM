@@ -118,6 +118,13 @@ def _plot_fig(train_results, valid_results, model_name):
 
 # load data
 dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices = _load_data()
+print('dfTrain:', dfTrain.shape, dfTrain.head())
+print('dfTest:', dfTest.shape, dfTest.head())
+print('X_train:', X_train.shape, X_train.head())
+print('y_train:', y_train.shape, y_train.head())
+print('X_test:', X_test.shape, X_test.head())
+print('ids_test:', ids_test)
+print('cat_features_indices:', cat_features_indices)
 
 # folds
 folds = list(StratifiedKFold(n_splits=config.NUM_SPLITS, shuffle=True,
@@ -147,16 +154,16 @@ dfm_params = {
 }
 y_train_dfm, y_test_dfm = _run_base_model_dfm(dfTrain, dfTest, folds, dfm_params)
 
-# ------------------ FM Model ------------------
-fm_params = dfm_params.copy()
-fm_params["use_deep"] = False
-y_train_fm, y_test_fm = _run_base_model_dfm(dfTrain, dfTest, folds, fm_params)
-
-
-# ------------------ DNN Model ------------------
-dnn_params = dfm_params.copy()
-dnn_params["use_fm"] = False
-y_train_dnn, y_test_dnn = _run_base_model_dfm(dfTrain, dfTest, folds, dnn_params)
+# # ------------------ FM Model ------------------
+# fm_params = dfm_params.copy()
+# fm_params["use_deep"] = False
+# y_train_fm, y_test_fm = _run_base_model_dfm(dfTrain, dfTest, folds, fm_params)
+#
+#
+# # ------------------ DNN Model ------------------
+# dnn_params = dfm_params.copy()
+# dnn_params["use_fm"] = False
+# y_train_dnn, y_test_dnn = _run_base_model_dfm(dfTrain, dfTest, folds, dnn_params)
 
 
 
