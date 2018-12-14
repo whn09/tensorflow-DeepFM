@@ -151,12 +151,12 @@ def _plot_fig(train_results, valid_results, model_name):
 # load data
 # dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices = _load_data()
 dfTrain, dfTest, X_train, y_train, X_test, ids_test, cat_features_indices = _load_fm_data()
-print('dfTrain:', dfTrain.shape, dfTrain.head())
-print('dfTest:', dfTest.shape, dfTest.head())
-print('X_train:', X_train.shape, X_train)
-print('y_train:', y_train.shape, y_train)
-print('X_test:', X_test.shape, X_test)
-print('ids_test:', len(ids_test), ids_test)
+print('dfTrain:', dfTrain.shape)
+print('dfTest:', dfTest.shape)
+print('X_train:', X_train.shape)
+print('y_train:', y_train.shape)
+print('X_test:', X_test.shape)
+print('ids_test:', len(ids_test))
 print('cat_features_indices:', len(cat_features_indices), cat_features_indices)
 
 # folds
